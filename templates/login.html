@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1 id="title">Welcome</h1>
+	<div id="wrapper">
+		{% if error %}
+		<p><strong>Utilisateur inexistant ou mauvais de mot de passe.</strong></p>
+		{% endif %}
+
+		<form method="post" action=".">
+		 	   {% csrf_token %}
+		 	   {{ form.as_p }}
+		    <input type="submit"/></p>
+		</form>
+	</div>
+	<div class="button-wrapper">
+		<a class="navButton" href="/signin">Sign In</a>
+	</div>
+{% endblock %}

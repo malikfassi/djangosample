@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1 id="title">Welcome</h1>
+	<div id="wrapper">
+		{% if not_empty %}
+			<ul>
+				{% for app in applications %}
+					<li><a class="{{app.access}}" href="/applist/{{ app.id }}"/>{{app.description}}</a></li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p> No app are available </p>
+		{% endif %}
+	</div>
+	<div class="button-wrapper">
+		<a class="navButton" href="/logout">Logout</a>
+		<a class="navButton" href="/applist/upload">UPLOAD</a>
+	</div>
+{% endblock %}
+
